@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/button"
+    android:padding="16dp">
+
+    <!-- Ekran -->
+    <EditText
+        android:id="@+id/editTextText"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/edittext"
+        android:gravity="end|center_vertical"
+        android:inputType="none"
+        android:padding="16dp"
+        android:text="0"
+        android:textColor="@color/white"
+        android:textSize="36sp"
+        android:focusable="false"
+        android:cursorVisible="false" />
+
+    <!-- Tuş Takımı -->
+    <GridLayout
+        android:id="@+id/buttonGrid"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:columnCount="4"
+        android:rowCount="5"
+        android:alignmentMode="alignMargins"
+        android:rowOrderPreserved="false"
+        android:useDefaultMargins="true">
+
+        <!-- Satır 1 -->
+        <Button
+            android:id="@+id/buttonAC"
+            style="@style/CalcButtonStyle"
+            android:background="@color/button"
+            android:onClick="btnClear"
+            android:text="AC" />
+
+        <Button
+            android:id="@+id/buttonPlusMinus"
+            style="@style/CalcButtonStyle"
+            android:onClick="btnToggleSign"
+            android:text="+/-" />
+
+        <Button
+            android:id="@+id/buttonPercent"
+            style="@style/CalcButtonStyle"
+            android:onClick="btnPercent"
+            android:text="%" />
+
+        <Button
+            android:id="@+id/buttonDivide"
+            style="@style/CalcButtonStyle"
+            android:onClick="btnClick"
+            android:text="/" />
+
+        <!-- Satır 2 -->
+        <Button
+            android:id="@+id/button7"
+            style="@style/CalcButtonStyle"
+            android:onClick="btnClick"
+            android:text="7" />
+
+        <Button
+            android:id="@+id/button8"
+            style="@style/CalcButtonStyle"
+            android:onClick="btnClick"
+            android:text="8" />
+
+        <Button
+            android:id="@+id/button9"
+            style="@style/CalcButtonStyle"
+            android:onClick="btnClick"
+            android:text="9" />
+
+        <Button
+            android:id="@+id/buttonMultiply"
+            style="@style/CalcButtonStyle"
+            android:onClick="btnClick"
+            android:text="×" />
+
+        <!-- Satır 3 -->
+        <Button
+            android:id="@+id/button4"
+            style="@style/CalcButtonStyle"
+            android:onClick="btnClick"
+            android:text="4" />
+
+        <Button
+            android:id="@+id/button5"
+            style="@style/CalcButtonStyle"
+            android:onClick="btnClick"
+            android:text="5" />
+
+        <Button
+            android:id="@+id/button6"
+            style="@style/CalcButtonStyle"
+            android:onClick="btnClick"
+            android:text="6" />
+
+        <Button
+            android:id="@+id/buttonMinus"
+            style="@style/CalcButtonStyle"
+            android:onClick="btnClick"
+            android:text="-" />
+
+        <!-- Satır 4 -->
+        <Button
+            android:id="@+id/button1"
+            style="@style/CalcButtonStyle"
+            android:onClick="btnClick"
+            android:text="1" />
+
+        <Button
+            android:id="@+id/button2"
+            style="@style/CalcButtonStyle"
+            android:onClick="btnClick"
+            android:text="2" />
+
+        <Button
+            android:id="@+id/button3"
+            style="@style/CalcButtonStyle"
+            android:onClick="btnClick"
+            android:text="3" />
+
+        <Button
+            android:id="@+id/buttonPlus"
+            style="@style/CalcButtonStyle"
+            android:onClick="btnClick"
+            android:text="+" />
+
+        <!-- Satır 5 -->
+        <Button
+            android:id="@+id/button0"
+            style="@style/CalcButtonStyle"
+            android:layout_columnSpan="2"
+            android:onClick="btnClick"
+            android:text="0" />
+        <Button android:id="@+id/buttonDot" android:text="." style="@style/CalcButtonStyle" />
+
+        <Button
+            android:id="@+id/buttonEqual"
+            style="@style/CalcButtonStyle"
+            android:background="@color/edittext"
+            android:onClick="btnEqual"
+            android:text="="
+            android:textColor="@color/white" />
+
+    </GridLayout>
+
+</LinearLayout>
