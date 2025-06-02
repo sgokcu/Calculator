@@ -7,7 +7,6 @@
     android:background="@color/button"
     android:padding="16dp">
 
-    <!-- Ekran -->
     <EditText
         android:id="@+id/editTextText"
         android:layout_width="match_parent"
@@ -23,7 +22,6 @@
         android:focusable="false"
         android:cursorVisible="false" />
 
-    <!-- Tuş Takımı -->
     <GridLayout
         android:id="@+id/buttonGrid"
         android:layout_width="match_parent"
@@ -35,7 +33,6 @@
         android:rowOrderPreserved="false"
         android:useDefaultMargins="true">
 
-        <!-- Satır 1 -->
         <Button
             android:id="@+id/buttonAC"
             style="@style/CalcButtonStyle"
@@ -61,7 +58,6 @@
             android:onClick="btnClick"
             android:text="/" />
 
-        <!-- Satır 2 -->
         <Button
             android:id="@+id/button7"
             style="@style/CalcButtonStyle"
@@ -86,7 +82,6 @@
             android:onClick="btnClick"
             android:text="×" />
 
-        <!-- Satır 3 -->
         <Button
             android:id="@+id/button4"
             style="@style/CalcButtonStyle"
@@ -111,7 +106,6 @@
             android:onClick="btnClick"
             android:text="-" />
 
-        <!-- Satır 4 -->
         <Button
             android:id="@+id/button1"
             style="@style/CalcButtonStyle"
@@ -136,14 +130,18 @@
             android:onClick="btnClick"
             android:text="+" />
 
-        <!-- Satır 5 -->
         <Button
             android:id="@+id/button0"
             style="@style/CalcButtonStyle"
             android:layout_columnSpan="2"
             android:onClick="btnClick"
             android:text="0" />
-        <Button android:id="@+id/buttonDot" android:text="." style="@style/CalcButtonStyle" />
+
+        <Button
+            android:id="@+id/buttonDot"
+            style="@style/CalcButtonStyle"
+            android:onClick="btnClick"
+            android:text="." />
 
         <Button
             android:id="@+id/buttonEqual"

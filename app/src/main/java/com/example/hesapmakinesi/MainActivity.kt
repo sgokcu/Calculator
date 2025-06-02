@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun btnClick(view: View) {
-        if (view !is Button) return  // Sadece butonlar işlenir
+        if (view !is Button) return
 
         if (isNewOp) {
             expression = ""
@@ -31,9 +31,20 @@ class MainActivity : AppCompatActivity() {
         val text = view.text.toString()
 
         val safeText = when (text) {
-            "×" -> "*"
-            "÷" -> "/"
+            "×", "x", "X" -> "*"
+            "÷", "﹣", "−" -> "/"
+            "–", "—" -> "-"
+            "＋" -> "+"
+            "," -> "."
             else -> text
+        }
+        if (safeText == ".") {
+            val lastOpIndex = expression.lastIndexOfAny(charArrayOf('+', '-', '*', '/'))
+            val currentNumber = if (lastOpIndex == -1) expression else expression.substring(lastOpIndex + 1)
+
+            if (currentNumber.contains(".")) {
+                return
+            }
         }
 
         expression += safeText
@@ -49,7 +60,6 @@ class MainActivity : AppCompatActivity() {
     fun btnToggleSign(view: View) {
         if (expression.isEmpty()) return
 
-        // Son sayıyı bulmak için ters sırada operatör ararız
         val lastOpIndex = expression.lastIndexOfAny(charArrayOf('+', '-', '*', '/'))
 
         val numberStart = if (lastOpIndex == -1) 0 else lastOpIndex + 1
@@ -58,10 +68,8 @@ class MainActivity : AppCompatActivity() {
         if (number.isEmpty()) return
 
         if (number.startsWith("-")) {
-            // Zaten negatifse başındaki "-" işaretini kaldır
             expression = expression.removeRange(numberStart, numberStart + 1)
         } else {
-            // Değilse başına "-" ekle
             expression = expression.substring(0, numberStart) + "-" + number
         }
 
