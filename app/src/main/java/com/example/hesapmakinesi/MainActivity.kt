@@ -3,7 +3,6 @@ package com.example.hesapmakinesi
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.hesapmakinesi.databinding.ActivityMainBinding
 import org.mariuszgromada.math.mxparser.Expression
@@ -46,7 +45,6 @@ class MainActivity : AppCompatActivity() {
                 return
             }
         }
-
         expression += safeText
         binding.editTextText.setText(expression)
     }
@@ -72,11 +70,8 @@ class MainActivity : AppCompatActivity() {
         } else {
             expression = expression.substring(0, numberStart) + "-" + number
         }
-
         binding.editTextText.setText(expression)
     }
-
-
 
     fun btnEqual(view: View) {
         try {
@@ -84,15 +79,14 @@ class MainActivity : AppCompatActivity() {
             val result = exp.calculate()
 
             if (result.isNaN()) {
-                binding.editTextText.setText("Hata")
-                Toast.makeText(this, "Geçersiz işlem", Toast.LENGTH_SHORT).show()
+                binding.editTextText.setText("Error")
+                isNewOp = true
             } else {
                 binding.editTextText.setText(result.toString())
-                expression = result.toString()
                 isNewOp = true
             }
         } catch (e: Exception) {
-            binding.editTextText.setText("Hata")
+            binding.editTextText.setText("Error")
         }
     }
 
@@ -103,7 +97,7 @@ class MainActivity : AppCompatActivity() {
             expression = result.toString()
             isNewOp = true
         } catch (e: Exception) {
-            binding.editTextText.setText("Hata")
+            binding.editTextText.setText("Error")
         }
     }
 }
